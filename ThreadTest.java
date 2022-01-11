@@ -10,14 +10,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
-/**
- * java多线程模拟生产者消费者问题
- * 
- * ProducerConsumer是主类，Producer生产者，Consumer消费者，Product产品，Storage仓库
- * 
- * @author 林计钦
- * @version 1.0 2013-7-24 下午04:49:02
- */
 public class ThreadTest {
 	private int i=1;
     public static void main(String[] args) {
@@ -71,12 +63,6 @@ public class ThreadTest {
 
     }
 
-    /**
-     * 生产者
-     * 
-     * @author 林计钦
-     * @version 1.0 2013-7-24 下午04:53:44
-     */
     class Producer implements Runnable {
         private String name;
         private Storage s = null;
@@ -103,22 +89,10 @@ public class ThreadTest {
         }
     }
 
-    /**
-     * 仓库，用来存放产品
-     * 
-     * @author 林计钦
-     * @version 1.0 2013-7-24 下午04:54:16
-     */
+
     public class Storage {
         BlockingQueue<Product> queues = new LinkedBlockingQueue<Product>(10);
 
-        /**
-         * 生产
-         * 
-         * @param p
-         *            产品
-         * @throws InterruptedException
-         */
         public void push(Product p) throws InterruptedException {
             queues.put(p);
         }
@@ -134,12 +108,6 @@ public class ThreadTest {
         }
     }
 
-    /**
-     * 产品
-     * 
-     * @author 林计钦
-     * @version 1.0 2013-7-24 下午04:54:04
-     */
     public class Product {
         private int id;
 
